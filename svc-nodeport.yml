@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-np
+  labels:
+    app: web
+spec:
+  type: NodePort
+  ports:
+    - port: 3000 #container port
+      nodePort: 30001 #internal endpoint
+  selector:
+    app: web

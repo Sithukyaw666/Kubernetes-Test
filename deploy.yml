@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+    zone: prod
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: web ## should be the label of pod
+  replicas: 1 #number of replicas
+  strategy:
+    type: RollingUpdate
+  template: # description of pod
+    metadata:
+      labels:
+        app: web ##pod label
+        zone: prod
+        version: v1
+    spec:
+      containers:
+        - image: sithukyaw666/node-app:latest
+          name: web-app
+          ports:
+            - containerPort: 3000
