@@ -10,4 +10,4 @@ spec:
     - port: 8080 # service endpoint port
       targetPort: 3000 #container port
   selector:
-    app: web # must match developent label
+    app: web # must match with developent label
